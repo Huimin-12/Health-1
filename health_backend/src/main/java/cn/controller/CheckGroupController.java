@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/checkGroup")
 public class CheckGroupController {
@@ -47,6 +49,27 @@ public class CheckGroupController {
             e.printStackTrace();
             return new Result(false,MessageConstant.QUERY_CHECKGROUP_FAIL);
         }
-
+    }
+    //根据id查询当前检查组当中关联的检查项
+    @RequestMapping("/findCheckItemIdsByCheckGroupId")
+    public Result findCheckItemIdsByCheckGroupId(Integer id){
+        try {
+            List<Integer> checkitemIds = checkGroupService.findCheckItemIdsByCheckGroupId(id);
+            return new Result(true,MessageConstant.QUERY_CHECKITEM_SUCCESS,checkitemIds);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new Result(false,MessageConstant.QUERY_CHECKITEM_FAIL);
+        }
+    }
+    //编辑修改列表方法
+    @RequestMapping("/edit")
+    public Result edit(@RequestBody CheckGroup checkGroup, Integer[] checkitemIds){
+        try {
+            checkGroupService.edit(checkGroup,checkitemIds);
+            return new Result(true, MessageConstant.EDIT_CHECKGROUP_SUCCESS);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new Result(true, MessageConstant.EDIT_CHECKGROUP_FAIL);
+        }
     }
 }

@@ -4,6 +4,8 @@ import cn.domain.CheckGroup;
 import cn.entity.PageResult;
 import cn.entity.QueryPageBean;
 
+import java.util.List;
+
 public interface CheckGroupService {
     //添加检查组
     void add(CheckGroup checkGroup, Integer[] checkitemIds);
@@ -11,4 +13,8 @@ public interface CheckGroupService {
     PageResult findPage(QueryPageBean queryPageBean);
 
     CheckGroup findById(int id);
+
+    List<Integer> findCheckItemIdsByCheckGroupId(Integer id);
+    //编辑检查组
+    void edit(CheckGroup checkGroup, Integer[] checkitemIds);
 }
