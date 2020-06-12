@@ -69,7 +69,20 @@ public class CheckGroupController {
             return new Result(true, MessageConstant.EDIT_CHECKGROUP_SUCCESS);
         } catch (Exception e) {
             e.printStackTrace();
-            return new Result(true, MessageConstant.EDIT_CHECKGROUP_FAIL);
+            return new Result(false, MessageConstant.EDIT_CHECKGROUP_FAIL);
         }
+    }
+    @RequestMapping("/findAll")
+    public Result findAll(){
+        //调用查询方法，返回一个list集合
+        List<CheckGroup> checkGroup = checkGroupService.findAll();
+        if (checkGroup!=null && checkGroup.size()>0){
+            Result result = new Result(true,MessageConstant.QUERY_CHECKGROUP_SUCCESS);
+            //把获取到的数据set到Result当中，并返回
+            result.setData(checkGroup);
+            return result;
+        }
+        //查询失败
+        return new Result(false,MessageConstant.QUERY_CHECKITEM_FAIL);
     }
 }

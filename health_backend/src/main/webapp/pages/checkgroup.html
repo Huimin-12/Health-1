@@ -285,7 +285,7 @@
             //编辑
             handleEdit() {
                 //发送ajax请求
-                axios.post("/checkGroup/edit.do?checkitemIds="+this.checkboxItems,this.formData).then((res)=>{
+                axios.post("/checkGroup/edit.do?checkitemIds="+this.checkitemIds,this.formData).then((res)=>{
                     //关闭弹出窗口
                     this.dialogFormVisible4Edit=false;
                     if (res.data.flag){//操作成功
@@ -369,14 +369,24 @@
                     if (res.data.flag) {//操作成功
                         //为模型数据赋值，通过VUE数据双向绑定进行信息的回显
                         this.formData = res.data.data;
+                        //发送ajax请求，查询检查项当中的所有数据
+                        axios.get("/checkitem/findAll.do").then((res) => {
+                            if (res.data.flag) {//查询所有检查项成功
+                                this.tableData = res.data.data;
                         //查询当前检查组包含的所有检查项id，用于页面回显
                         axios.get("/checkGroup/findCheckItemIdsByCheckGroupId.do?id=" + row.id).then((res)=> {
                             //为模型数据赋值，通过VUE数据双向绑定进行信息的回显
-                            if(res.data.flag){
+                            if(res.data.flag){//查询成功
                                 this.checkitemIds = res.data.data;
-                            } else{
+                            } else{//查询失败
                                 this.$message.error(res.data.message);
                             }
+                        });
+                            }else {//查询所有检查项失败
+                                this.$message.error(res.data.message);
+                            }
+                        }).finally(() => {//分页查询方法
+                            this.findPage();
                         });
                     } else {//操作失败
                         this.$message.error("获取数据失败，请重新刷新页面");

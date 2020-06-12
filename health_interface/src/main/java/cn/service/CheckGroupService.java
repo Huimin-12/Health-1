@@ -17,4 +17,6 @@ public interface CheckGroupService {
     List<Integer> findCheckItemIdsByCheckGroupId(Integer id);
     //编辑检查组
     void edit(CheckGroup checkGroup, Integer[] checkitemIds);
+    //查询所有检查组信息
+    List<CheckGroup> findAll();
 }

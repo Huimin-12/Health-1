@@ -75,4 +75,10 @@ public class CheckGroupServiceImpl implements CheckGroupService {
             checkGroupMapper.set_checkGroupIdAndCheckitemId(map);
         }
     }
+    //查询所有检查组信息
+    @Override
+    public List<CheckGroup> findAll() {
+        List<CheckGroup> checkGroupList = checkGroupMapper.findAll();
+        return checkGroupList;
+    }
 }

@@ -1,4 +1,5 @@
 cn\domain\Setmeal.class
+cn\utils\POIUtils.class
 cn\domain\Member.class
 cn\entity\Result.class
 cn\domain\CheckGroup.class
@@ -11,4 +12,5 @@ cn\constant\MessageConstant.class
 cn\domain\CheckItem.class
 cn\domain\Permission.class
 cn\entity\QueryPageBean.class
+cn\utils\QiniuUtils.class
 cn\domain\Order.class

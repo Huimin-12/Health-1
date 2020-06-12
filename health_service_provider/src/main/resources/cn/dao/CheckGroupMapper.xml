@@ -34,7 +34,7 @@
         select checkitem_id from t_checkgroup_checkitem where checkitem_id=#{id}
     </select>
     <!--修改编辑前的表-->
-    <update id="handleEdit" parameterType="cn.domain.CheckItem">
+    <update id="edit" parameterType="cn.domain.CheckItem">
         update t_checkgroup
         <set>
             <if test="code != null">
@@ -61,6 +61,10 @@
     </update>
     <!--根据检查组id删除中间表数据（清理原有关联关系）-->
     <delete id="deleteAssociation" parameterType="int">
-        delete from t_checkgroup_checkitem checkitem_id=#{id}
+        delete from t_checkgroup_checkitem where checkitem_id=#{id}
     </delete>
+
+    <select id="findAll" resultType="cn.domain.CheckGroup">
+        select * from t_checkgroup
+    </select>
 </mapper>

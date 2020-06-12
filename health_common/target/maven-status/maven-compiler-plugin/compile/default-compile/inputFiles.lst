@@ -3,12 +3,14 @@ E:\IdeaProjects\health_parent\health_common\src\main\java\cn\domain\Setmeal.java
 E:\IdeaProjects\health_parent\health_common\src\main\java\cn\entity\PageResult.java
 E:\IdeaProjects\health_parent\health_common\src\main\java\cn\domain\Menu.java
 E:\IdeaProjects\health_parent\health_common\src\main\java\cn\entity\Result.java
+E:\IdeaProjects\health_parent\health_common\src\main\java\cn\utils\POIUtils.java
 E:\IdeaProjects\health_parent\health_common\src\main\java\cn\entity\QueryPageBean.java
 E:\IdeaProjects\health_parent\health_common\src\main\java\cn\constant\MessageConstant.java
 E:\IdeaProjects\health_parent\health_common\src\main\java\cn\domain\Permission.java
 E:\IdeaProjects\health_parent\health_common\src\main\java\cn\domain\CheckGroup.java
 E:\IdeaProjects\health_parent\health_common\src\main\java\cn\domain\Role.java
 E:\IdeaProjects\health_parent\health_common\src\main\java\cn\domain\User.java
+E:\IdeaProjects\health_parent\health_common\src\main\java\cn\utils\QiniuUtils.java
 E:\IdeaProjects\health_parent\health_common\src\main\java\cn\domain\Member.java
 E:\IdeaProjects\health_parent\health_common\src\main\java\cn\domain\CheckItem.java
 E:\IdeaProjects\health_parent\health_common\src\main\java\cn\domain\Order.java

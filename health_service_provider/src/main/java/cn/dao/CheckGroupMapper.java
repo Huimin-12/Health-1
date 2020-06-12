@@ -21,4 +21,6 @@ public interface CheckGroupMapper {
     void edit(CheckGroup checkGroup);
     //根据检查组id删除中间表数据（清理原有关联关系）
     void deleteAssociation(Integer Id);
+    //查询所有检查组信息
+    List<CheckGroup> findAll();
 }
