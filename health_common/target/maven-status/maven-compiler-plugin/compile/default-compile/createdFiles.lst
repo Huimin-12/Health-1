@@ -1,3 +1,4 @@
+cn\constant\RedisConstant.class
 cn\domain\Setmeal.class
 cn\utils\POIUtils.class
 cn\domain\Member.class

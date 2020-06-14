@@ -2,6 +2,7 @@ E:\IdeaProjects\health_parent\health_common\src\main\java\cn\domain\OrderSetting
 E:\IdeaProjects\health_parent\health_common\src\main\java\cn\domain\Setmeal.java
 E:\IdeaProjects\health_parent\health_common\src\main\java\cn\entity\PageResult.java
 E:\IdeaProjects\health_parent\health_common\src\main\java\cn\domain\Menu.java
+E:\IdeaProjects\health_parent\health_common\src\main\java\cn\constant\RedisConstant.java
 E:\IdeaProjects\health_parent\health_common\src\main\java\cn\entity\Result.java
 E:\IdeaProjects\health_parent\health_common\src\main\java\cn\utils\POIUtils.java
 E:\IdeaProjects\health_parent\health_common\src\main\java\cn\entity\QueryPageBean.java
