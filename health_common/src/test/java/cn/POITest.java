@@ -6,13 +6,16 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.junit.Test;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 
 public class POITest {
    // @Test
     public void test1() throws IOException {
         //创建工作蒲
-        XSSFWorkbook workbook = new XSSFWorkbook("F:\\private\\最新学校名单(8)(2).xlsx");
+        //XSSFWorkbook workbook = new XSSFWorkbook("F:\\private\\最新学校名单(8)(2).xlsx");
+        XSSFWorkbook workbook = new XSSFWorkbook(new FileInputStream(new File("F:\\private\\最新学校名单(8)(2).xlsx")));
         //获取工作表
         XSSFSheet sheetAt = workbook.getSheetAt(0);
         //遍历工作表，获得每一行

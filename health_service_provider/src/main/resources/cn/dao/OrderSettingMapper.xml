@@ -14,4 +14,8 @@
     <update id="editNumberByOrderDate" parameterType="cn.domain.OrderSetting" >
         update t_ordersetting set number=#{number} where orderDate=#{orderDate}
     </update>
+    <!--根据时间段 查询这段时间的数据-->
+    <select id="getOrderSettingByMonth" parameterType="map" resultType="cn.domain.OrderSetting">
+        select * from t_ordersetting where orderDate between #{dateBegin} and #{dateEnd}
+    </select>
 </mapper>

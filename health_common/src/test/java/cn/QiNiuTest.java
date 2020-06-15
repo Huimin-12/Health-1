@@ -14,10 +14,10 @@ import org.junit.Test;
 public class QiNiuTest {
     //使用七牛云提供的SDK实现将本地图片上传到七牛云服务器
 
-    //@Test
+   // @Test
     public void test1(){
         //构造一个带指定Zone对象的配置类
-        Configuration cfg = new Configuration(Zone.zone2());
+        Configuration cfg = new Configuration(Zone.zone0());
 //...其他参数参考类注释
         UploadManager uploadManager = new UploadManager(cfg);
 //...生成上传凭证，然后准备上传
@@ -25,7 +25,7 @@ public class QiNiuTest {
         String secretKey = "mQrmPlBSTXAKbYpfl0rIKeMnOyM2VAVLP2SbSHeA";
         String bucket = "huimin-12";
 //如果是Windows情况下，格式是 D:\\qiniu\\test.png
-        String localFilePath = "F:\\private\\沃尔沃照片\\19年12月合影\\IMG_5415.JPG";
+        String localFilePath = "D:\\java视频\\传智健康-课件\\day04\\素材\\图片资源\\03a36073-a140-4942-9b9b-712cecb144901.jpg";
 //默认不指定key的情况下，以文件内容的hash值作为文件名
         String key = "abc.jpg";
         Auth auth = Auth.create(accessKey, secretKey);
