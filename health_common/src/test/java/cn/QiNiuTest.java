@@ -14,6 +14,7 @@ import org.junit.Test;
 public class QiNiuTest {
     //使用七牛云提供的SDK实现将本地图片上传到七牛云服务器
 
+   //
    // @Test
     public void test1(){
         //构造一个带指定Zone对象的配置类

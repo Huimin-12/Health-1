@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import redis.clients.jedis.JedisPool;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service(interfaceClass = SetmealService.class)
@@ -43,6 +44,17 @@ public class SetmealServiceImpl implements SetmealService {
         //调用条件查询方法
         Page<Setmeal> setmealPage = setmealMapper.selectByCondition(queryPageBean.getQueryString());
         return new PageResult(setmealPage.getTotal(),setmealPage.getResult());
+    }
+    //查询所有套餐的数据
+    @Override
+    public List<Setmeal> findAll() {
+        return setmealMapper.findAll();
+    }
+    //根据id进行套餐数据的查询
+    @Override
+    public Setmeal findById(int id) {
+        Setmeal setmeal = setmealMapper.findById(id);
+        return setmeal;
     }
 
     //定义一个方法，用来遍历存储表与表之间的关系

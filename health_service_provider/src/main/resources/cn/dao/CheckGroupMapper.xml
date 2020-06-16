@@ -2,13 +2,32 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.dao.CheckGroupMapper">
+    <resultMap id="baseResultMap" type="cn.domain.CheckGroup">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="code" property="code"/>
+        <result column="helpCode" property="helpCode"/>
+        <result column="sex" property="sex"/>
+        <result column="remark" property="remark"/>
+        <result column="attention" property="attention"/>
+    </resultMap>
+
+    <resultMap id="findByIdResultMap" type="cn.domain.CheckGroup" extends="baseResultMap">
+        <collection property="checkItems"
+                    javaType="ArrayList"
+                    ofType="cn.domain.CheckGroup"
+                    column="id"
+                    select="cn.dao.CheckItemMapper.findCheckItemById"
+        >
+        </collection>
+    </resultMap>
     <!--插入检查组数据-->
     <insert id="add" parameterType="cn.domain.CheckGroup">
         <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
-             SELECT LAST_INSERT_ID()
+            SELECT LAST_INSERT_ID()
         </selectKey>
         insert into t_checkgroup(code,name,helpCode,sex,remark,attention)
-                      values
+        values
         (#{code},#{name},#{helpCode},#{sex},#{remark},#{attention})
     </insert>
     <!--插入t_checkgroup_checkitem-->
@@ -63,8 +82,12 @@
     <delete id="deleteAssociation" parameterType="int">
         delete from t_checkgroup_checkitem where checkitem_id=#{id}
     </delete>
-
+    <!--查询所有检查组信息-->
     <select id="findAll" resultType="cn.domain.CheckGroup">
         select * from t_checkgroup
+    </select>
+    <!--多对多的多表查询-->
+    <select id="findCheckGroupById" resultMap="findByIdResultMap">
+        select * from t_checkgroup where id in(select checkgroup_id from t_setmeal_checkgroup where setmeal_id=#{id})
     </select>
 </mapper>

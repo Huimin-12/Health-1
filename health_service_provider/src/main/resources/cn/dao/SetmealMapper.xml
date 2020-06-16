@@ -2,6 +2,28 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.dao.SetmealMapper">
+    <resultMap id="baseResultMap" type="cn.domain.Setmeal">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="code" property="code"/>
+        <result column="helpCode" property="helpCode"/>
+        <result column="sex" property="sex"/>
+        <result column="age" property="age"/>
+        <result column="price" property="price"/>
+        <result column="remark" property="remark"/>
+        <result column="attention" property="attention"/>
+        <result column="img" property="img"/>
+    </resultMap>
+    <resultMap id="findByIdResultMap" type="cn.domain.Setmeal" extends="baseResultMap">
+        <collection property="checkGroups"
+                    javaType="ArrayList"
+                    ofType="cn.domain.CheckGroup"
+                    column="id"
+                    select="cn.dao.CheckGroupMapper.findCheckGroupById"
+        >
+
+        </collection>
+    </resultMap>
     <!--插入检查组数据-->
     <insert id="add" parameterType="cn.domain.Setmeal">
         <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
@@ -21,5 +43,13 @@
         <if test="value!=null and value.length>0">
             where code = #{value} or name = #{value} or helpCode = #{value}
         </if>
+    </select>
+    <!--查询所有套餐信息-->
+    <select id="findAll" resultType="cn.domain.Setmeal">
+        select * from t_setmeal
+    </select>
+    <!--根据id进行套餐详细信息查询-->
+    <select id="findById" resultMap="findByIdResultMap">
+        select * from t_setmeal where id=#{id}
     </select>
 </mapper>

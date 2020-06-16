@@ -63,4 +63,8 @@
     <select id="findAll" resultType="cn.domain.CheckItem">
         select t.id,t.code,t.name,t.remark from t_checkitem t
     </select>
+
+    <select id="findCheckItemById" resultType="cn.domain.CheckItem" >
+        select * from t_checkitem where id in (select checkitem_id from t_checkgroup_checkitem where checkgroup_id=#{id})
+    </select>
 </mapper>
