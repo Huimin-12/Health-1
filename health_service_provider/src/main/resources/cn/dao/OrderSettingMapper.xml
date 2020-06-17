@@ -22,4 +22,5 @@
     <select id="findByOrderDate" parameterType="date" resultType="cn.domain.OrderSetting">
         select * from t_ordersetting where orderDate=#{orderDate}
     </select>
+
 </mapper>
