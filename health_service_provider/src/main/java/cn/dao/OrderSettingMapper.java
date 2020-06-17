@@ -15,4 +15,6 @@ public interface OrderSettingMapper {
     void editNumberByOrderDate(OrderSetting orderSetting);
     //根据时间段 查询这段时间的数据
     List<OrderSetting> getOrderSettingByMonth(Map<String,String> map);
+    //根据日期进行查询，当前日期是否有可以预约
+    OrderSetting findByOrderDate(Date date);
 }

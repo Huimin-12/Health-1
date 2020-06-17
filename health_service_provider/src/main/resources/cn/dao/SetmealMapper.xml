@@ -49,7 +49,7 @@
         select * from t_setmeal
     </select>
     <!--根据id进行套餐详细信息查询-->
-    <select id="findById" resultMap="findByIdResultMap">
+    <select id="findById" parameterType="int" resultMap="findByIdResultMap">
         select * from t_setmeal where id=#{id}
     </select>
 </mapper>

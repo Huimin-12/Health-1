@@ -18,4 +18,8 @@
     <select id="getOrderSettingByMonth" parameterType="map" resultType="cn.domain.OrderSetting">
         select * from t_ordersetting where orderDate between #{dateBegin} and #{dateEnd}
     </select>
+    <!--根据日期进行查询，当前日期是否有可以预约-->
+    <select id="findByOrderDate" parameterType="date" resultType="cn.domain.OrderSetting">
+        select * from t_ordersetting where orderDate=#{orderDate}
+    </select>
 </mapper>

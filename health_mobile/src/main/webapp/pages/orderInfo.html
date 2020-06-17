@@ -127,13 +127,37 @@
                 validateCodeButton = $("#validateCodeButton")[0];
                 //通过window对象调用一个定时器
                 clock = window.setInterval(doLoop, 1000); //一秒执行一次
+                //发送ajax请求
+                axios.post("/validateCode/send4Order.do?telephone=" + telephone).then((res) => {
+                    if (!res.data.flag) {
+                        //不成功
+                        this.$message.error(res.data.message);
+                    }
+                });
             },
             //提交预约
             submitOrder() {
+                //校验身份证信息是否有误
+                if (!checkIdCard(this.orderInfo.idCard)) {
+                    //身份证输入有误
+                    this.$message.error("您输入的身份证信息有误，请重新输入");
+                    return false;
+                }
+                //发送ajax请求
+                axios.post("/validateCode/submit.do", this.orderInfo).then((res) => {
+                        if (res.data.flag) { //预约成功，跳转到预约成功页面
+                            window.location.href = "orderSuccess.html?orderId=" + res.data.data;
+                        } else {
+                            //预约失败，提示预约失败信息
+                            this.$message.error(response.data.message);
+                        }
+                    }
+                );
             }
         },
         mounted() {
-            axios.post("/setmeal/findById？id=" + id).then((res) => {
+            //根据id进行套餐查询
+            axios.post("/setmeal/findById.do?id=" + id).then((res) => {
                 this.setmeal = res.data.data;
             });
         }
