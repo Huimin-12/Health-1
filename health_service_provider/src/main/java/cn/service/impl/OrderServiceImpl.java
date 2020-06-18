@@ -83,4 +83,18 @@ public class OrderServiceImpl implements OrderService {
         orderMapper.add(order);
         return new Result(true,MessageConstant.ORDER_SUCCESS,order.getId());
     }
+    //根据用户的id进行预约信息的查询
+    @Override
+    public Map findById(int id) throws Exception {
+        Map map = orderMapper.findById4Detail(id);
+
+        if (map!=null){
+            //处理日期格式，转换为字符串格式返回
+            Date orderDate = (Date) map.get("orderDate");
+            map.put("orderDate",DateUtils.parseDate2String(orderDate));
+        }
+        return map;
+    }
+
+
 }

@@ -31,8 +31,8 @@ public class ValidateCodeController {
      */
     @RequestMapping("/send4Order")
     public Result send4Order(String telephone){
-        //生成4位数的手机验证码
-       Integer code = ValidateCodeUtils.generateValidateCode(4);
+        //生成6位数的手机验证码
+       Integer code = ValidateCodeUtils.generateValidateCode(6);
        //给手机发送短信,第一个参数是发送什么类型的短信，第二个参数是电话号码，第三个参数是随机验证码
         try {
             SMSUtils.sendShortMessage(SMSUtils.VALIDATE_CODE,telephone,code.toString());
@@ -79,5 +79,21 @@ public class ValidateCodeController {
             return new Result(false,MessageConstant.VALIDATECODE_ERROR);
         }
         return result;
+    }
+    @RequestMapping("/send4Login")
+    public Result send4Login(String telephone){
+        //生成6位数的手机验证码
+        Integer code = ValidateCodeUtils.generateValidateCode(6);
+        //给手机发送短信,第一个参数是发送什么类型的短信，第二个参数是电话号码，第三个参数是随机验证码
+        try {
+            SMSUtils.sendShortMessage(SMSUtils.VALIDATE_CODE,telephone,code.toString());
+        } catch (ClientException e) {
+            e.printStackTrace();
+            //验证码发送失败
+            return new Result(false, MessageConstant.SEND_VALIDATECODE_FAIL);
+        }
+        //把生成的验证码存入redis当中，设置它的存活时间为5分钟
+        jedisPool.getResource().setex(telephone+RedisMessageConstant.SENDTYPE_LOGIN,30*60,code.toString());
+        return new Result(true,MessageConstant.SEND_VALIDATECODE_SUCCESS);
     }
 }

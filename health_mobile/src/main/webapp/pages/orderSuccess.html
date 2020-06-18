@@ -66,6 +66,7 @@
                 orderInfo:{}
             },
             mounted(){
+                //发送ajax请求，查询用户预约后的个人信息
                 axios.post("/order/findById.do?id=" + id).then((response) => {
                     this.orderInfo = response.data.data;
                 });
