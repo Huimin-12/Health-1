@@ -14,9 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import redis.clients.jedis.JedisPool;
 
 import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.Map;
 
@@ -33,7 +31,7 @@ public class MemberController {
         String telephone = (String) map.get("telephone");
         //获取用户输入的验证码和存在redis当中的验证码
         String validateCode = (String) map.get("validateCode");
-        String codeInRedis = jedisPool.getResource().get(RedisMessageConstant.SENDTYPE_LOGIN);
+        String codeInRedis = jedisPool.getResource().get(telephone+RedisMessageConstant.SENDTYPE_LOGIN);
 //        1、校验用户输入的短信验证码是否正确，如果验证码错误则登录失败
         if (validateCode==null||codeInRedis==null||!validateCode.equals(codeInRedis)){
             //验证码错误

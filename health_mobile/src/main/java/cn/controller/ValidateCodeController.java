@@ -42,7 +42,7 @@ public class ValidateCodeController {
             return new Result(false, MessageConstant.SEND_VALIDATECODE_FAIL);
         }
         //把生成的验证码存入redis当中，设置它的存活时间为5分钟
-        jedisPool.getResource().setex(telephone+RedisMessageConstant.SENDTYPE_ORDER,5*60,code.toString());
+        jedisPool.getResource().setex(telephone+RedisMessageConstant.SENDTYPE_ORDER,30*60,code.toString());
         return new Result(true,MessageConstant.SEND_VALIDATECODE_SUCCESS);
     }
 

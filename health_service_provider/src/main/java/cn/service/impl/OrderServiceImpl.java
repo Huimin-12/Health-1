@@ -10,12 +10,15 @@ import cn.domain.OrderSetting;
 import cn.entity.Result;
 import cn.service.OrderService;
 import cn.utils.DateUtils;
+import com.alibaba.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-
+@Service(interfaceClass = OrderService.class)
+@Transactional
 public class OrderServiceImpl implements OrderService {
 
     @Autowired
