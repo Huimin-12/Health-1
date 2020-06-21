@@ -7,6 +7,7 @@ import cn.entity.QueryPageBean;
 import cn.entity.Result;
 import cn.service.CheckItemService;
 import com.alibaba.dubbo.config.annotation.Reference;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,6 +45,7 @@ public class CheckItemContorller {
         return pageResult;
     }
     //根据id删除数据
+    @PreAuthorize("hasAnyAuthority('CHECKITEM_DELETE')")//授予权限，只有有权限的用户才可以调用该方法
     @RequestMapping("/deleteOne/{id}")
     public Result deleteOne(@PathVariable(value = "id") Integer id){
 

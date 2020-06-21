@@ -52,4 +52,8 @@
     <select id="findById" parameterType="int" resultMap="findByIdResultMap">
         select * from t_setmeal where id=#{id}
     </select>
+
+    <select id="findSetmealCount" resultType="map">
+        SELECT s.name,COUNT(o.id) value FROM t_order o, t_setmeal s WHERE o.setmeal_id = s.id GROUP BY s.name
+    </select>
 </mapper>

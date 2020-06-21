@@ -56,6 +56,12 @@ public class SetmealServiceImpl implements SetmealService {
         Setmeal setmeal = setmealMapper.findById(id);
         return setmeal;
     }
+    //查询用户套餐占比数，返回页面进行饼形图展示
+    @Override
+    public List<Map<String, Object>> findSetmealCount() {
+        return setmealMapper.findSetmealCount();
+
+    }
 
     //定义一个方法，用来遍历存储表与表之间的关系
     public void setSetmealAndCheckGroup(Integer setmealId,Integer[] checkgroupIds){

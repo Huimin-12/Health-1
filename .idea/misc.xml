@@ -10,6 +10,12 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/springSecuritydemo/pom.xml" />
+        <option value="$PROJECT_DIR$/iiiiiii/pom.xml" />
+        <option value="$PROJECT_DIR$/../iiiiiiiiiiiiii/pom.xml" />
+        <option value="$PROJECT_DIR$/../untitled/pom.xml" />
+        <option value="$PROJECT_DIR$/../springsecurityDemo/pom.xml" />
+        <option value="$PROJECT_DIR$/../springsecurtyDemo/pom.xml" />
       </list>
     </option>
   </component>

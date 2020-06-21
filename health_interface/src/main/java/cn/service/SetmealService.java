@@ -5,6 +5,7 @@ import cn.entity.PageResult;
 import cn.entity.QueryPageBean;
 
 import java.util.List;
+import java.util.Map;
 
 public interface SetmealService {
     //新增套餐
@@ -15,4 +16,6 @@ public interface SetmealService {
     List<Setmeal> findAll();
     //根据id进行套餐数据的查询
     Setmeal findById(int id);
+
+    List<Map<String, Object>> findSetmealCount();
 }

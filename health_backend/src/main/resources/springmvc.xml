@@ -31,7 +31,7 @@
     <!--<dubbo:registry address="zookeeper://192.168.116.128:2181"/>-->
     <dubbo:registry address="zookeeper://127.0.0.1:2181"/>
     <!--批量扫描-->
-    <dubbo:annotation package="cn.controller" />
+    <dubbo:annotation package="cn" />
     <!--
         超时全局设置 10分钟
         check=false 不检查服务提供方，开发阶段建议设置为false
@@ -46,4 +46,5 @@
         <property name="defaultEncoding" value="UTF-8"/>
     </bean>
     <import resource="classpath:spring-redis.xml"></import>
+    <import resource="classpath:spring-security.xml"></import>
 </beans>
