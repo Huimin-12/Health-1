@@ -1,0 +1,4 @@
+cn\controller\ValidateCodeController.class
+cn\controller\SetmealController.class
+cn\controller\MemberController.class
+cn\controller\OrderController.class

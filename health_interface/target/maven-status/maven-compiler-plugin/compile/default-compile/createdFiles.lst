@@ -1,0 +1,8 @@
+cn\service\UserService.class
+cn\service\MemberService.class
+cn\service\ReportService.class
+cn\service\CheckGroupService.class
+cn\service\SetmealService.class
+cn\service\CheckItemService.class
+cn\service\OrderService.class
+cn\service\OrderSettingService.class

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.dao.OrderSettingMapper">
+    <!--插入检查组数据-->
+    <insert id="add" parameterType="cn.domain.OrderSetting">
+        insert into t_ordersetting(orderDate,number,reservations) values(#{orderDate},#{number},#{reservations})
+    </insert>
+    <!--//查询当天有没有信息插入-->
+    <select id="findCountByOrderDate" parameterType="java.util.Date" resultType="long">
+        select count(*) from t_ordersetting where orderDate=#{date}
+    </select>
+    <!--更新表数据-->
+    <update id="editNumberByOrderDate" parameterType="cn.domain.OrderSetting" >
+        update t_ordersetting set number=#{number} where orderDate=#{orderDate}
+    </update>
+    <!--根据时间段 查询这段时间的数据-->
+    <select id="getOrderSettingByMonth" parameterType="map" resultType="cn.domain.OrderSetting">
+        select * from t_ordersetting where orderDate between #{dateBegin} and #{dateEnd}
+    </select>
+    <!--根据日期进行查询，当前日期是否有可以预约-->
+    <select id="findByOrderDate" parameterType="date" resultType="cn.domain.OrderSetting">
+        select * from t_ordersetting where orderDate=#{orderDate}
+    </select>
+
+</mapper>
