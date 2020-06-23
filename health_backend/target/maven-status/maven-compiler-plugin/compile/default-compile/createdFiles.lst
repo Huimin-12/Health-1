@@ -1,7 +1,7 @@
+cn\service\SpringsecurityUserService.class
+cn\controller\UserController.class
+cn\controller\CheckItemContorller.class
 cn\controller\SetmealController.class
 cn\controller\ReportController.class
 cn\controller\CheckGroupController.class
-cn\service\SpringsecurityUserService.class
-cn\controller\UserController.class
 cn\controller\OrderSettingController.class
-cn\controller\CheckItemContorller.class

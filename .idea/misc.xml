@@ -5,6 +5,7 @@
     <file type="web" url="file://$PROJECT_DIR$/health_jobs" />
     <file type="web" url="file://$PROJECT_DIR$/health_mobile" />
     <file type="web" url="file://$PROJECT_DIR$/health_service_provider" />
+    <file type="web" url="file://$PROJECT_DIR$/../jasperreports_test" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
@@ -16,6 +17,8 @@
         <option value="$PROJECT_DIR$/../untitled/pom.xml" />
         <option value="$PROJECT_DIR$/../springsecurityDemo/pom.xml" />
         <option value="$PROJECT_DIR$/../springsecurtyDemo/pom.xml" />
+        <option value="$PROJECT_DIR$/../jasperreports_test/pom.xml" />
+        <option value="$PROJECT_DIR$/jasperreportsDemo/pom.xml" />
       </list>
     </option>
   </component>
