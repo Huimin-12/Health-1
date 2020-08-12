@@ -35,6 +35,7 @@ public class CheckGroupController {
     //分页查询检查组
     @RequestMapping("/findPage")
     public PageResult findPage(@RequestBody QueryPageBean queryPageBean){
+        
            PageResult pageResult= checkGroupService.findPage(queryPageBean);
            return pageResult;
     }
